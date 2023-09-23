@@ -14,7 +14,6 @@ const Work: React.FC<Props> = ({ data }) => {
       </Divider>
       
       <Descriptions column={1}>
-
         <Descriptions.Item label="Occupation">
           {data.occupation}
         </Descriptions.Item>
@@ -22,7 +21,6 @@ const Work: React.FC<Props> = ({ data }) => {
         <Descriptions.Item label="Base">
           {data.base}
         </Descriptions.Item>
-
       </Descriptions>
     </>
   );

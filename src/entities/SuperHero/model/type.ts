@@ -1,6 +1,7 @@
 import { EntityState } from "@reduxjs/toolkit";
 
 export interface ISuperHeroState extends EntityState<ISuperHero> { }
+
 export interface ISuperHero {
   id: string;
   name: string;
@@ -16,6 +17,7 @@ export interface ISuperHero {
 export interface ISuperHeroImage {
   url: string;
 }
+
 export interface ISuperHeroPowerStats {
   intelligence: string;
   strength: string;
@@ -24,6 +26,7 @@ export interface ISuperHeroPowerStats {
   power: string;
   combat: string;
 }
+
 export interface ISuperHeroAppearance {
   gender: string;
   race: string;
@@ -42,10 +45,12 @@ export interface ISuperHeroBiography {
   publisher: string;
   alignment: string;
 }
+
 export interface ISuperHeroConnections {
   "group-affiliation": string;
   relatives: string;
 }
+
 export interface ISuperHeroWork {
   occupation: string;
   base: string;

@@ -12,8 +12,8 @@ const Connections: React.FC<Props> = ({ data }) => {
       <Divider orientation="left" plain>
         Connections
       </Divider>
+      
       <Descriptions column={1}>
-
         <Descriptions.Item label="Relatives">
           {data.relatives}
         </Descriptions.Item>
@@ -21,9 +21,6 @@ const Connections: React.FC<Props> = ({ data }) => {
         <Descriptions.Item label="Group affiliation">
           {data["group-affiliation"]}
         </Descriptions.Item>
-
-
-
       </Descriptions>
     </>
   );

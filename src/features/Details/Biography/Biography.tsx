@@ -14,7 +14,6 @@ const Biography: React.FC<Props> = ({ data }) => {
       </Divider>
 
       <Descriptions column={1}>
-
         <Descriptions.Item label="Publisher">
           {data.publisher}
         </Descriptions.Item>
@@ -34,7 +33,6 @@ const Biography: React.FC<Props> = ({ data }) => {
         <Descriptions.Item label="first Appearance">
           {data["first-appearance"]}
         </Descriptions.Item>
-
       </Descriptions>
     </>
   );

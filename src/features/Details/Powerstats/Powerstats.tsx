@@ -13,7 +13,6 @@ const Powerstats: React.FC<Props> = ({ data }) => {
         Power stats
       </Divider>
       <Descriptions>
-
         <Descriptions.Item label="Combat">
           {data.combat}
         </Descriptions.Item>
@@ -37,7 +36,6 @@ const Powerstats: React.FC<Props> = ({ data }) => {
         <Descriptions.Item label="Strength">
           {data.strength}
         </Descriptions.Item>
-
       </Descriptions>
     </>
   );

@@ -13,11 +13,6 @@ import Powerstats from "./Powerstats";
 import Work from "./Work";
 import Connections from "./Connections";
 
-
-
-
-// connections: ISuperHeroConnections;
-
 const DetailsSuperHero: React.FC = () => {
 
   const { id } = useParams();
@@ -36,7 +31,12 @@ const DetailsSuperHero: React.FC = () => {
       <Card
         title={
           <Typography.Title>
-            <span className={cn(styles.back)} onClick={() => navigate("/")}><LeftCircleOutlined /></span>
+            <span
+              className={cn(styles.back)}
+              onClick={() => navigate("/")}
+            >
+              <LeftCircleOutlined />
+            </span>
             {hero?.name}
           </Typography.Title>
         }

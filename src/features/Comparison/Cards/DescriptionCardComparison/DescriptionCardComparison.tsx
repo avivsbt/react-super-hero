@@ -9,7 +9,6 @@ type Props = {
 }
 
 const DescriptionCardComparison: React.FC<Props> = ({ powerStats }) => {
-
   return (
     <div className={cn(styles.wrapper)}>
       <List className={cn(styles.list)} size="small">
@@ -33,7 +32,6 @@ const DescriptionCardComparison: React.FC<Props> = ({ powerStats }) => {
         </List.Item>
       </List>
     </div>
-
   );
 };
 

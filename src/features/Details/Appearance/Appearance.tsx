@@ -12,8 +12,8 @@ const Appearance: React.FC<Props> = ({ data }) => {
       <Divider orientation="left" plain>
         Appearance
       </Divider>
-      <Descriptions>
 
+      <Descriptions>
         <Descriptions.Item label="Height">
           {data.height}
         </Descriptions.Item>
@@ -37,7 +37,6 @@ const Appearance: React.FC<Props> = ({ data }) => {
         <Descriptions.Item label="Race">
           {data.race}
         </Descriptions.Item>
-
       </Descriptions>
     </>
   );

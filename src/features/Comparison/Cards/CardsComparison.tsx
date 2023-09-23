@@ -4,8 +4,8 @@ import cn from "classnames";
 import styles from "./CardsComparison.module.scss";
 import { useAppSelector } from "shared/hooks/useStoreHooks";
 import { getSuperHeroSelector } from "entities/SuperHero/model/superHeroSelector";
-import CardComparison from "./Card/CardComparison";
-import AdditionalCardComparison from "./AdditionalCard/AdditionalCardComparison";
+import CardComparison from "./CardComparison/CardComparison";
+import AdditionalCardComparison from "./AdditionalCardComparison/AdditionalCardComparison";
 
 const CardsComparison: React.FC = () => {
 

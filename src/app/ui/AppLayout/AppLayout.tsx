@@ -22,11 +22,7 @@ const AppLayout: React.FC = () => {
         <Content className={cn(styles.content)}>
           <Outlet />
         </Content>
-        <Footer
-          style={{
-            textAlign: 'center',
-          }}
-        >
+        <Footer className={cn(styles.footer)}>
           Octup ©2023 Created by Aviv Mizrahi
         </Footer>
       </Layout>
