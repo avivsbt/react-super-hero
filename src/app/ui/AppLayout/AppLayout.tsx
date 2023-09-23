@@ -1,7 +1,7 @@
 import cn from "classnames";
 import React, { memo } from "react";
 import { Outlet } from "react-router-dom";
-import { Layout, theme, ConfigProvider, Typography } from "antd";
+import { Layout, theme, ConfigProvider } from "antd";
 import styles from "./AppLayout.module.scss";
 import { Footer } from "antd/es/layout/layout";
 
@@ -17,7 +17,7 @@ const AppLayout: React.FC = () => {
       }}>
       <Layout className={cn(styles.wrapper)}>
         <Header className={cn(styles.header)}>
-          <Typography.Title level={1}>Super Hero</Typography.Title>
+          <img alt="Super hero" src={require("images/logo.png")}/>
         </Header>
         <Content className={cn(styles.content)}>
           <Outlet />
