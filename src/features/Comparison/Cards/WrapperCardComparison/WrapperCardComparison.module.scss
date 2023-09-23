@@ -1,0 +1,14 @@
+.card {
+    flex: 33%;
+    max-width: 33%;
+
+    @media (max-width: 768px) {
+        flex: 50%;
+        max-width: 50%;
+    }
+
+    @media (max-width: 480px) {
+        flex: 100%;
+        max-width: 100%;
+    }
+}
