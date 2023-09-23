@@ -29,8 +29,9 @@ const DetailsSuperHero: React.FC = () => {
   return (
     hero ?
       <Card
+        className={cn(styles.wrapper)}
         title={
-          <Typography.Title>
+          <Typography.Title className={cn(styles.title)}>
             <span
               className={cn(styles.back)}
               onClick={() => navigate("/")}
