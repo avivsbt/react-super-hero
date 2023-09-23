@@ -38,6 +38,9 @@
       ],
       "features/*": [
         "features/*"
+      ],
+      "images/*": [
+        "images/*"
       ]
     },
   },
