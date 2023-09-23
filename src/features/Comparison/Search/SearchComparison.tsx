@@ -45,6 +45,7 @@ const SearchComparison: React.FC<Props> = ({ value = "", id = null }) => {
         const { data } = await superHeroApi.getSuperHero({ name });
         if (!data.results) {
           setResult([]);
+          setLoading(false);
           return;
         }
         const list = removeDuplicates(data.results, "name");
@@ -54,13 +55,16 @@ const SearchComparison: React.FC<Props> = ({ value = "", id = null }) => {
         console.error(error.response?.data);
       }
       setLoading(false);
-    }, 500), []);
+    }, 300), []);
 
   /* Search super hero */
   const onSearch = useCallback(async (name: string) => {
-    setLoading(true);
     setInput(name);
-    name && debouncedOnSearch(name);
+    setResult(null);
+    if(name.length > 1) {
+      setLoading(true);
+      debouncedOnSearch(name);
+    }
   }, [debouncedOnSearch]);
 
   /* Select super hero */
@@ -68,7 +72,7 @@ const SearchComparison: React.FC<Props> = ({ value = "", id = null }) => {
     const selected = result?.find(hero => hero.name === option);
     if (!selected) return;
     id ? dispatch(superHeroUpdated({ id, changes: selected })) : dispatch(superHerodAdded({ ...selected, updatedAt: + new Date() }));
-    onResetSearch()
+    onResetSearch();
   }, [dispatch, result, id, onResetSearch]);
 
   return (
