@@ -13,7 +13,7 @@ const Work: React.FC<Props> = ({ data }) => {
         Work
       </Divider>
       
-      <Descriptions column={1}>
+      <Descriptions layout="vertical" column={1}>
         <Descriptions.Item label="Occupation">
           {data.occupation}
         </Descriptions.Item>

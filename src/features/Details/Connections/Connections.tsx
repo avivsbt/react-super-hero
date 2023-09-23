@@ -13,7 +13,7 @@ const Connections: React.FC<Props> = ({ data }) => {
         Connections
       </Divider>
       
-      <Descriptions column={1}>
+      <Descriptions layout="vertical" column={1}>
         <Descriptions.Item label="Relatives">
           {data.relatives}
         </Descriptions.Item>

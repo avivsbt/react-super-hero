@@ -13,7 +13,7 @@ const Biography: React.FC<Props> = ({ data }) => {
         Biography
       </Divider>
 
-      <Descriptions column={1}>
+      <Descriptions layout="vertical" column={1}>
         <Descriptions.Item label="Publisher">
           {data.publisher}
         </Descriptions.Item>
