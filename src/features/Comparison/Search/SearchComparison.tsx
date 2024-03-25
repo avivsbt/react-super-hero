@@ -54,9 +54,7 @@ const SearchComparison: React.FC<Props> = ({ value = "", id = null }) => {
         setResult(list);
 
       } catch (error) {
-        if (axios.isCancel(error)) {
-          console.log("AxiosCancel: caught cancel");
-        } else {
+        if (!axios.isCancel(error)) {
           console.error("Error", error);
         }
       }
