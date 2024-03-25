@@ -4,7 +4,7 @@ Heroes' Comparison is an application built using React with Redux Toolkit. The p
 
 ## Design and Architecture
 
-In terms of design, we utilized the Ant Design library to create a user-friendly and aesthetically pleasing interface. The architecture of the application is based on Feature-Sliced Design, which emphasizes the most important points of planning and development.
+In terms of design, we utilized the [Ant Design](https://ant.design/) library to create a user-friendly and aesthetically pleasing interface. The architecture of the application is based on [Feature-Sliced Design](https://feature-sliced.design/), which emphasizes the most important points of planning and development.
 
 ## Getting Started
 
