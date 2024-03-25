@@ -1,4 +1,9 @@
 .cover-img {
     height: 350px;
     overflow: hidden;
+
+    img {
+        aspect-ratio: 4 / 5;
+    }
 }
+
