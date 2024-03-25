@@ -8,7 +8,9 @@ const superHeroEndpoints = {
 
 const superHeroApi = {
   getSuperHero: (payload: ISuperHeroReqDto): Promise<AxiosResponse<ISuperHeroResDto, AxiosError>> =>
-    api.get(`${superHeroEndpoints.getSuperHero}${payload.name}`),
+    api.get(`${superHeroEndpoints.getSuperHero}${payload.name}`, {
+      cancelToken: payload.source.token
+    }),
 };
 
 export default superHeroApi;

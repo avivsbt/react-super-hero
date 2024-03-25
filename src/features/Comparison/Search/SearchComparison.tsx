@@ -1,8 +1,8 @@
-import React, { memo, useCallback, useMemo, useState } from "react";
+import React, { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { AutoComplete, Input, Typography } from "antd";
 import cn from "classnames";
 import styles from "./SearchComparison.module.scss";
-import { AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import superHeroApi from "entities/SuperHero/api/superHeroApi";
 import { debounce } from 'lodash';
 import { removeDuplicates } from "shared/lib/util";
@@ -38,11 +38,13 @@ const SearchComparison: React.FC<Props> = ({ value = "", id = null }) => {
   }, []);
 
   /* Define a debounced version of onSearch */
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const debouncedOnSearch = useCallback(
-    debounce(async (name: string) => {
+  useEffect(() => {
+    const source = axios.CancelToken.source();
+    const loadData = debounce(async () => {
+      setLoading(true);
       try {
-        const { data } = await superHeroApi.getSuperHero({ name });
+        const { data } = await superHeroApi.getSuperHero({ name: input, source });
+
         if (!data.results) {
           setResult([]);
           setLoading(false);
@@ -50,22 +52,23 @@ const SearchComparison: React.FC<Props> = ({ value = "", id = null }) => {
         }
         const list = removeDuplicates(data.results, "name");
         setResult(list);
-      } catch (err) {
-        const error = err as AxiosError;
-        console.error(error.response?.data);
+
+      } catch (error) {
+        if (axios.isCancel(error)) {
+          console.log("AxiosCancel: caught cancel");
+        } else {
+          console.error("Error", error);
+        }
       }
       setLoading(false);
-    }, 300), []);
+    }, 300);
 
-  /* Search super hero */
-  const onSearch = useCallback(async (name: string) => {
-    setInput(name);
-    setResult(null);
-    if(name.length > 1) {
-      setLoading(true);
-      debouncedOnSearch(name);
-    }
-  }, [debouncedOnSearch]);
+    input.length > 1 && loadData();
+
+    return () => {
+      source.cancel();
+    };
+  }, [input]);
 
   /* Select super hero */
   const onSelect = useCallback((option: string) => {
@@ -87,7 +90,7 @@ const SearchComparison: React.FC<Props> = ({ value = "", id = null }) => {
         value={input}
       >
         <Input.Search
-          onChange={(event) => onSearch(event.currentTarget.value)}
+          onChange={(event) => setInput(event.currentTarget.value)}
           size="middle"
           placeholder="COMPARE WITH"
           loading={loading}

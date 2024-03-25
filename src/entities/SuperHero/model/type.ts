@@ -1,4 +1,5 @@
 import { EntityState } from "@reduxjs/toolkit";
+import { CancelTokenSource } from "axios";
 
 export interface ISuperHeroState extends EntityState<ISuperHero> { }
 
@@ -58,6 +59,7 @@ export interface ISuperHeroWork {
 
 export interface ISuperHeroReqDto {
   name: string;
+  source: CancelTokenSource;
 }
 
 export interface ISuperHeroResDto {

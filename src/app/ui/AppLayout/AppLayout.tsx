@@ -23,7 +23,7 @@ const AppLayout: React.FC = () => {
           <Outlet />
         </Content>
         <Footer className={cn(styles.footer)}>
-          Octup ©2023 Created by Aviv Mizrahi
+          Created by Aviv Mizrahi
         </Footer>
       </Layout>
     </ConfigProvider>
